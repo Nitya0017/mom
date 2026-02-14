@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Wife Kavita ❤️</title>
+    <style>
+        body { background-color: #fff0f3; text-align: center; font-family: 'Trebuchet MS', sans-serif; overflow: hidden; margin: 0; }
+        .container { margin-top: 15vh; }
+        h1 { color: #c9184a; font-size: 3.2rem; text-shadow: 2px 2px #ffb3c1; padding: 0 20px; }
+        h2 { color: #ff4d6d; font-size: 1.8rem; font-style: italic; }
+        .buttons { margin-top: 50px; display: flex; justify-content: center; gap: 20px; }
+        button { padding: 15px 40px; font-size: 22px; cursor: pointer; border-radius: 50px; border: none; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        #yesBtn { background-color: #ff4d6d; color: white; }
+        #noBtn { background-color: #808080; color: white; position: absolute; }
+        .message { display: none; color: #c9184a; font-size: 2.5rem; margin-top: 50px; animation: heartBeat 1.5s infinite; padding: 0 20px; }
+        @keyframes heartBeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="mainContainer">
+        <h2>To the Best Wife in the World...</h2>
+        <h1>Will you be my Valentine, Kavita? ❤️</h1>
+        <div class="buttons">
+            <button id="yesBtn" onclick="celebrate()">YES!</button>
+            <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">NO</button>
+        </div>
+    </div>
+    <div id="celebrationMsg" class="message">
+        I LOVE YOU FOREVER, KAVITA! ❤️🌹✨<br>
+        <span style="font-size: 1.5rem;">Happy Valentine's Day to my beautiful Wife</span>
+    </div>
+
+    <script>
+        function moveButton() {
+            const x = Math.random() * (window.innerWidth - 120);
+            const y = Math.random() * (window.innerHeight - 60);
+            const btn = document.getElementById('noBtn');
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function celebrate() {
+            document.getElementById('mainContainer').style.display = 'none';
+            document.getElementById('celebrationMsg').style.display = 'block';
+            
+            const emojis = ['❤️', '💖', '🌹', '✨', '💍', '🥂'];
+            for(let i=0; i<150; i++) {
+                setTimeout(() => {
+                    const e = document.createElement('div');
+                    e.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+                    e.style.position = 'fixed';
+                    e.style.left = Math.random() * 100 + 'vw';
+                    e.style.top = Math.random() * 100 + 'vh';
+                    e.style.fontSize = (Math.random() * 20 + 25) + 'px';
+                    e.style.zIndex = '-1';
+                    e.style.transition = 'transform 2.5s linear, opacity 2.5s';
+                    document.body.appendChild(e);
+                    
+                    setTimeout(() => {
+                        e.style.transform = `translateY(-300px) rotate(${Math.random() * 360}deg)`;
+                        e.style.opacity = '0';
+                    }, 50);
+                }, i * 25);
+            }
+        }
+    </script>
+</body>
+</html>
